@@ -49,8 +49,8 @@ i_sca               = 50;                           % [-] [not tunable] Scalling
 % Sine/Cosine wave look-up table
 res_elecAngle       = 2;
 a_elecAngle_XA      = 0:res_elecAngle:360;          % [deg] Electrical angle grid
-r_sin_M1            = sin((a_elecAngle_XA + 30)*(pi/180));  % Note: 30 deg shift is to allign it with the Hall sensors position
-r_cos_M1            = cos((a_elecAngle_XA + 30)*(pi/180));
+r_sin_M1            = sin((a_elecAngle_XA + 0)*(pi/180));  % Note: 30 deg shift is to allign it with the Hall sensors position
+r_cos_M1            = cos((a_elecAngle_XA + 0)*(pi/180));
 % figure
 % stairs(a_elecAngle_XA, r_sin_M1); hold on
 % stairs(a_elecAngle_XA, r_cos_M1);
@@ -61,7 +61,7 @@ r_cos_M1            = cos((a_elecAngle_XA + 30)*(pi/180));
 CTRL_COM            = 0;        % [-] Commutation Control
 CTRL_SIN            = 1;        % [-] Sinusoidal Control
 CTRL_FOC            = 2;        % [-] Field Oriented Control (FOC)
-z_ctrlTypSel        = CTRL_FOC; % [-] Control Type Selection (default)
+z_ctrlTypSel        = 2;%CTRL_FOC; % [-] Control Type Selection (default)
 
 % Control model request
 OPEN_MODE           = 0;        % [-] Open mode
@@ -111,7 +111,7 @@ a_phaAdvMax         = 25;               % [deg] Maximum phase advance angle
 
 
 %% F05_Field_Oriented_Control
-b_selPhaABCurrMeas  = 1;                % [-] Select measured current phases: {iA,iB} = 1 (default); {iB,iC} = 0
+z_selPhaCurMeasABC  = 0;                % [-] Select measured current phases: {iA,iB} = 0 (default); {iB,iC} = 1; {iA,iC} = 2
 
 % Motor Limitations Calibratables
 cf_iqKiLimProt      = 60 / (f_ctrl/3);  % [-] Current limit protection integral gain (only used in VLT_MODE and SPD_MODE)
